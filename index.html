@@ -1,147 +1,45 @@
 <!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Solar System Simulation</title>
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <script src="TemplateData/UnityProgress.js"></script>
+    
+    
   <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
   <link rel="stylesheet" href="stylesheets/github-dark.css">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/script.js"></script>
-  
-  
-  <!-- Unity Webplayer scripts -->
-  <script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
-  <script type="text/javascript">
-    <!--
-    var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
-    if (document.location.protocol == 'https:')
-      unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
-    document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
-    -->
-  </script>
-  
-  <script type="text/javascript">
-		<!--
-			var config = {
-				width: 960, 
-				height: 600,
-				params: { enableDebugging:"0" }
-				
-			};
-			var u = new UnityObject2(config);
-
-			jQuery(function() {
-
-				var $missingScreen = jQuery("#unityPlayer").find(".missing");
-				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
-				$missingScreen.hide();
-				$brokenScreen.hide();
-				
-				u.observeProgress(function (progress) {
-					switch(progress.pluginStatus) {
-						case "broken":
-							$brokenScreen.find("a").click(function (e) {
-								e.stopPropagation();
-								e.preventDefault();
-								u.installPlugin();
-								return false;
-							});
-							$brokenScreen.show();
-						break;
-						case "missing":
-							$missingScreen.find("a").click(function (e) {
-								e.stopPropagation();
-								e.preventDefault();
-								u.installPlugin();
-								return false;
-							});
-							$missingScreen.show();
-						break;
-						case "installed":
-							$missingScreen.remove();
-						break;
-						case "first":
-						break;
-					}
-				});
-				u.initPlugin(jQuery("#unityPlayer")[0], "Web Player.unity3d");
-			});
-		-->
-		</script>
+  </head>
+  <body class="template">
     
-    <!-- END Unity Webplayer scripts -->
+    <p class="header"><span>Unity WebGL Player | </span>Solar System Simulation</p>
+    <div class="template-wrap clear">
+      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
+      <br>
+      <div class="logo"></div>
+      <div class="fullscreen"><img src="TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
+      <div class="title">Solar System Simulation</div>
+    </div>
     
-    <!-- Unity webplayer styling -->
-    <style type="text/css">
-      <!--
+    <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+    <script type='text/javascript'>
+  var Module = {
+    TOTAL_MEMORY: 268435456,
+    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+    compatibilitycheck: null,
+    dataUrl: "Release/Builds.data",
+    codeUrl: "Release/Builds.js",
+    memUrl: "Release/Builds.mem",
+  };
+</script>
+<script src="Release/UnityLoader.js"></script>
 
-      div.content {
-        margin: auto;
-        width: 960px;
-        position: relative;
-        top: 25px;
-        left: -130px;
-      }
-      
-      div.broken,
-      div.missing {
-        margin: auto;
-        position: relative;
-        top: 50%;
-        width: 193px;
-      }
-      div.broken a,
-      div.missing a {
-        height: 63px;
-        position: relative;
-        top: -31px;
-      }
-      div.broken img,
-      div.missing img {
-        border-width: 0px;
-      }
-      div.broken {
-        display: none;
-      }
-      div#unityPlayer {
-        cursor: default;
-        height: 600px;
-        width: 960px;
-      }
-      -->
-		</style>
-    
-    <!-- Unity webplayer styling -->
 
-  <title>Solar system simulation</title>
-  <meta name="description" content="A solar system model made with unity">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-</head>
-
-<body>
-
-  <div class="wrapper">
-    
-    <div class="content">
-			<div id="unityPlayer">
-				<div class="missing">
-					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
-						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
-					</a>
-				</div>
-				<div class="broken">
-					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
-						<img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
-					</a>
-				</div>
-			</div>
-		</div>
-    
+<div class="wrapper" style="margin-top: 725px;">    
     <header>
       <h1 class="title">Solar system simulation</h1>
     </header>
@@ -166,7 +64,7 @@
 <h3>
 <a id="the-actors" class="anchor" href="#the-actors" aria-hidden="true"><span class="octicon octicon-link"></span></a>The controllers (How to "play")</h3>
 <p>
-  This "game" allows you to move around a replica of our solar system. To move, use the WASD keys, move the mouse to look around, and use the mouse scrollwheel to acend or decend. 
+  This "game" allows you to move around a replica of our solar system. To move, use the WASD keys, move the mouse to look around, and use the mouse scrollwheel to acend or decend, click to shoot the planets and obtain information about them.
 </p>
 
 <h3>
@@ -272,6 +170,5 @@
     <p class="name"></p>
   </div>
 
-  
-</body>
+  </body>
 </html>
