@@ -4,7 +4,7 @@ using System.Collections;
 public class DisplayInfo : MonoBehaviour
 {
 
-	// target impact on game
+	// target impacted on game
     public string name;
 	public float radiusInfo = 0.0f;
 	public double distanceInfo = 0;

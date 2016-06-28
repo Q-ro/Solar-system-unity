@@ -26,7 +26,7 @@ public class Shooter : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
 		{	
 			// if projectile is specified
-			if (projectile)
+			if (projectile && GameManager.gm.getInMenu() != true)
 			{
 				// Instantiante projectile at the camera + 1 meter forward with camera rotation
 				GameObject newProjectile = Instantiate(projectile, transform.position + transform.forward, transform.rotation) as GameObject;
